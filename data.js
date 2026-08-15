@@ -1,37 +1,7 @@
 // data.js
 const pokemonData = {
-  lucario: {
-    name: "Lucario",
-    number: "0448",
-    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/448.png",
-    description: "It can discern the aura of all things. By catching the aura emanating from others, it can read their thoughts and movements even from a kilometer away.",
-    height: "1.2 m",
-    weight: "54.0 kg",
-    gender: "♂ ♀",
-    category: "Aura",
-    abilities: ["Steadfast", "Inner Focus"],
-    category2: "Folklore",
-    types: ["fighting", "steel"],
-    stats: { hp: 70, attack: 110, defense: 70, spAttack: 115, spDefense: 70, speed: 90 },
-    signatureMove: "Aura Sphere",
-    evolution: [
-      {
-        name: "Riolu",
-        number: "0447",
-        image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/447.png",
-        types: ["Fighting"]
-      },
-      {
-        condition: "High Friendship + Day",
-        name: "Lucario",
-        number: "0448",
-        image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/448.png",
-        types: ["Fighting", "Steel"]
-      }
-    ]
-  },
   template: {
-    name: "",
+    name: "empty_template",
     number: "",
     image: "",
     description: "",
@@ -68,7 +38,7 @@ const pokemonData = {
     ]
   },
   liviath: {
-    name: "Liviath",
+    name: "Liv",
     number: "0001",
     image: "https://imgur.com/Jbvllv0.png",
     description: "test",
@@ -87,27 +57,22 @@ const pokemonData = {
         spDefense: 115, 
         speed: 65
     },
-    signatureMove: "Origin Pulse",
-  },
-  lukas: {
-    name: "Lukas",
-    number: "067",
-    image: "https://imgur.com/GF1WTdu.png",
-    description: "",
-    height: "2 foxes tall",
-    weight: "A sheep and a gram",
-    gender: "sheep",
-    category: "Sheep",
-    abilities: ["Fluffy", "Quick Draw"],
-    types: ["Normal", "Dark"],
-    stats: {
-        hp: 50, 
-        attack: 130, 
-        defense: 120, 
-        spAttack: 120, 
-        spDefense: 60, 
-        speed: 120
-    }
+    signatureMove: "Liquidation",
+    evolution: [
+      {
+        name: "Liv",
+        number: "000",
+        image: "https://imgur.com/Jbvllv0.png",
+        types: ["Water","Poison"]
+      },
+      {
+        condition: "Dark Stone, lvl. 65",
+        name: "Liviath",
+        number: "000",
+        image: "https://imgur.com/u13ECcO.png",
+        types: ["Dragon", "Water"]
+      }
+    ]
   },
   amba: {
     name: "Ambrosia Thimble",
