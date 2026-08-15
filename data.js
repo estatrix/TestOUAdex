@@ -7,7 +7,7 @@ const pokemonData = {
     description: "",
     height: "",
     weight: "",
-    gender: "",
+    gender: "♂♀",
     category: "",
     abilities: ["", ""],
     types: ["", ""],
@@ -38,7 +38,7 @@ const pokemonData = {
     ]
   },
   liviath: {
-    name: "Liv",
+    name: "Liviath",
     number: "0001",
     image: "https://imgur.com/Jbvllv0.png",
     description: "test",
@@ -48,7 +48,7 @@ const pokemonData = {
     category: "Leviathan",
     category2: "Folklore",
     abilities: ["Dry Skin", "Wonder Guard"],
-    types: ["Dragon", "Water"],
+    types: ["Water", "Poison"],
     stats: {
         hp: 120, 
         attack: 80, 
@@ -69,7 +69,7 @@ const pokemonData = {
         condition: "Dark Stone, lvl. 65",
         name: "Liviath",
         number: "000",
-        image: "https://imgur.com/u13ECcO.png",
+        image: "https://imgur.com/Y0hA4Op.png",
         types: ["Dragon", "Water"]
       }
     ]
@@ -132,5 +132,49 @@ const pokemonData = {
         types: ["Dragon", "Fairy"]
       }
     ]
-  }
+  },
+  astriel: {
+    name: "Astriel",
+    number: "000",
+    image: "https://imgur.com/SAWokWL.png",
+    description: "Astriel was magically manifested from the previous Unicorn, born sort of, out of magic. But still her daughter. But even though Astriel was born a normal unicorn, the times she and her mother did come across another, she could tell her mother was unlike the rest. She used to be carefree. She once dreamed hopefully of her destiny, of love, but as she grew older, she began to realize a certain look in her mother's eyes: longing. It was a tired look, and one that also spoke of her mother's mortality, and her mother's sleeptalk of one day rejoining love only exemplified it, as her mother never did any of the things she said. Astriel's dreams slowly turned to nightmares after that, and yet, she knows she must follow her destiny. So she learned to mask her fears, for the sake of her mother, of other unicorns, and most of all, of herself.",
+    height: "1.67 m",
+    weight: "A horse and a horn",
+    gender: "♀",
+    category: "Unicorn",
+    abilities: ["Quick Feet", "Bad Dreams"],
+    types: ["Normal", "Fairy"],
+    stats: {
+        hp: 105, 
+        attack: 80, 
+        defense: 90, 
+        spAttack: 130, 
+        spDefense: 95, 
+        speed: 120
+    },
+    signatureMove: "Misty Terrain",
+    category2: "Fairytale"
+  },
+  apno: {
+    name: "Apno Spectis",
+    number: "000",
+    image: "https://imgur.com/q7WPnHf.png",
+    description: "He does his best to appear confident and optimistic. Due to his uprising, he is a bit of stickler for rules and thus prefers to be around with what he is the most familiar with, even if it comes at the expense of his own being. He constantly tells himself that the needs of his people override the needs of his own causing him to subconsciously place other people's desires over his in normal interactions. However, deep down Apno is a free-spirit who wants to prioritize himself above all else only being stopped by being repulsed at his own selfishness. He fears that once he has a taste for freedom, he'll become enraptured by it and change into something else beyond recognition. Someone that would abandon their duties, even at the cost of everything else to satisfy their own unsightly desires.",
+    height: "1.76 m",
+    weight: "90 thousand flowers",
+    gender: "♂",
+    category: "Hyacinthus",
+    abilities: ["Oblivious", "Aroma Veil"],
+    types: ["Normal", "Grass"],
+    stats: {
+        hp: 80, 
+        attack: 125, 
+        defense: 85, 
+        spAttack: 75, 
+        spDefense: 85, 
+        speed: 60
+    },
+    signatureMove: "Sweet Scent",
+    category2: "Mythology"
+  },
 };
