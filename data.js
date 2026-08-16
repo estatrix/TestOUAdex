@@ -105,7 +105,7 @@ const pokemonData = {
     weight: "2 pelicans",
     gender: "♀",
     category: "Dragon Fairy Seagull whatever",
-    category2: "Fairytale",
+    category2: "Mythology",
     abilities: ["Aroma Veil", "Friend Guard"],
     types: ["Fairy", "Flying"],
     stats: {
