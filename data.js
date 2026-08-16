@@ -186,7 +186,7 @@ const pokemonData = {
     weight: "2 king cobras",
     gender: "♂",
     category: "Gorgon",
-    abilities: ["Keen Eye", "Mind's Eye"],
+    abilities: ["Keen Eye", "Minds Eye"],
     types: ["Normal", "Poison"],
     stats: {
         hp: 60, 
