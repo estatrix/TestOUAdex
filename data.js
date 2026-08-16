@@ -177,4 +177,26 @@ const pokemonData = {
     signatureMove: "Sweet Scent",
     category2: "Mythology"
   },
+  lyle: {
+    name: "Lyle Di Sarpedon",
+    number: "000",
+    image: "https://imgur.com/plKlqrj.png",
+    description: "Little introverted worry-wart. Poor buddy is too scared to interact with anyone, let alone make connections knowing the danger he is to others",
+    height: "1.55 m",
+    weight: "2 king cobras",
+    gender: "♂",
+    category: "Gorgon",
+    abilities: ["Keen Eye", "Mind's Eye"],
+    types: ["Normal", "Poison"],
+    stats: {
+        hp: 60, 
+        attack: 95, 
+        defense: 70, 
+        spAttack: 110, 
+        spDefense: 100, 
+        speed: 90
+    },
+    signatureMove: "Scary Face",
+    category2: "Mythology"
+  },
 };
