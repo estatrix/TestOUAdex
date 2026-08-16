@@ -199,4 +199,26 @@ const pokemonData = {
     signatureMove: "Scary Face",
     category2: "Mythology"
   },
+  tina: {
+    name: "Tina Bell",
+    number: "000",
+    image: "https://imgur.com/WzbA91p.png",
+    description: "",
+    height: "",
+    weight: "",
+    gender: "♂♀",
+    category: "Season Fairy (Summer)",
+    abilities: ["Chlorophyll", "Solar Power"],
+    types: ["Fairy", "Fire"],
+    stats: {
+        hp: 20, 
+        attack: 25, 
+        defense: 40, 
+        spAttack: 125, 
+        spDefense: 100, 
+        speed: 130
+    },
+    signatureMove: "Fiery Dance",
+    category2: "Fairytale"
+  },
 };
