@@ -203,10 +203,10 @@ const pokemonData = {
     name: "Tina Bell",
     number: "000",
     image: "https://imgur.com/WzbA91p.png",
-    description: "",
-    height: "",
-    weight: "",
-    gender: "♂♀",
+    description: "Tina is a bit of a rambunctious girl who is tricksy and nosy, but not in a way that would make it unfun. She has good intentions, she's just very curious and not exactly a rules follower.",
+    height: "0.6 m",
+    weight: "1 blaze rod",
+    gender: "♀",
     category: "Season Fairy (Summer)",
     abilities: ["Chlorophyll", "Solar Power"],
     types: ["Fairy", "Fire"],
@@ -220,5 +220,27 @@ const pokemonData = {
     },
     signatureMove: "Fiery Dance",
     category2: "Fairytale"
+  },
+  enso: {
+    name: "Enso Hades",
+    number: "000",
+    image: "https://imgur.com/QXvEzRW.png",
+    description: "Growing up as a son of hades his father had high expectations of him, but Enso had no interest in such things and his heart was only filled with greed, he wanted more than just a throne, he wanted power, but he never let his father know his true intentions of taking all his riches for himself and continued to train under his father and the underworlds strongest demons to reach his goal using his natural born abilities and wits to fool all those around him",
+    height: "1.60 m",
+    weight: "1 dead body & half",
+    gender: "♂",
+    category: "Death",
+    abilities: ["Merciless", "Supreme Overlord"],
+    types: ["Dark"],
+    stats: {
+        hp: 95, 
+        attack: 120, 
+        defense: 85, 
+        spAttack: 105, 
+        spDefense: 95, 
+        speed: 100
+    },
+    signatureMove: "Power Trip",
+    category2: "Mythology"
   },
 };
