@@ -40,7 +40,7 @@ const pokemonData = {
   liviath: {
     name: "Liviath",
     number: "0001",
-    image: "https://imgur.com/Jbvllv0.png",
+    image: "https://imgur.com/TBuZrAd.png",
     description: "test",
     height: "1.71 m",
     weight: "214 kg",
@@ -62,7 +62,7 @@ const pokemonData = {
       {
         name: "Liv",
         number: "000",
-        image: "https://imgur.com/Jbvllv0.png",
+        image: "https://imgur.com/TBuZrAd.png",
         types: ["Water","Poison"]
       },
       {
