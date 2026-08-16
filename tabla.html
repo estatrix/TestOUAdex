@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pokémon Table - Once Upon A Dex</title>
+  <title>Character Table - Once Upon A Dex</title>
   <style>
     :root {
       --bg-body: #f4f7f9;
@@ -59,19 +59,19 @@
 
   <div class="container">
     <header class="header">
-      <h1>Pokémon Database</h1>
-      <a href="index.html" class="nav-link">← Volver a Dex</a>
+      <h1>Character Database</h1>
+      <a href="index.html" class="nav-link">← Back to Details</a>
     </header>
 
     <div class="controls-card">
       <div class="control-group">
-        <label>Buscar Nombre o N.º</label>
+        <label>Name or N.º</label>
         <input type="text" id="search-input" placeholder="Ej. Lucario, 448...">
       </div>
       <div class="control-group">
-        <label>Filtrar Tipo</label>
+        <label>Filter Type</label>
         <select id="type-filter">
-          <option value="all">Todos los Tipos</option>
+          <option value="all">All Types</option>
           <option value="normal">Normal</option><option value="fire">Fire</option><option value="water">Water</option>
           <option value="electric">Electric</option><option value="grass">Grass</option><option value="ice">Ice</option>
           <option value="fighting">Fighting</option><option value="poison">Poison</option><option value="ground">Ground</option>
@@ -92,8 +92,8 @@
           <tr>
             <th data-sort="number">N.º ↕</th>
             <th>Sprite</th>
-            <th data-sort="name">Nombre ↕</th>
-            <th>Tipos</th>
+            <th data-sort="name">Name ↕</th>
+            <th>Type/s</th>
             <th data-sort="hp">HP ↕</th>
             <th data-sort="attack">Atk ↕</th>
             <th data-sort="defense">Def ↕</th>
