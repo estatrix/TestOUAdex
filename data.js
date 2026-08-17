@@ -397,4 +397,26 @@ const pokemonData = {
     signatureMove: "Mirror Move",
     category2: "Folklore"
   },
+  elio: {
+    name: "Elio Ray",
+    number: "000",
+    image: "https://imgur.com/ULSYJLc.png",
+    description: "Elio grew up with a lot of turmoil at home. At 5 years old, his mother passed away, a commonality with Apollo’s descendants. During those 5 years, he was very close to his mother, and her sudden death left deep scars on him. Growing up without her, Elio threw himself into training to become the next Apollo, with the guidance of his father.",
+    height: "1.68 m",
+    weight: "72.1 kg",
+    gender: "♂",
+    category: "Sun",
+    abilities: ["Blaze", "Fire Mane"],
+    types: ["Fire", "Flying"],
+    stats: {
+        hp: 90, 
+        attack: 100, 
+        defense: 90, 
+        spAttack: 125, 
+        spDefense: 85, 
+        speed: 90
+    },
+    signatureMove: "Searing Shot",
+    category2: "Mythology"
+  },
 };
