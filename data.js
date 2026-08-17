@@ -145,9 +145,9 @@ const pokemonData = {
     abilities: ["Quick Feet", "Bad Dreams"],
     types: ["Normal", "Fairy"],
     stats: {
-        hp: 105, 
+        hp: 90, 
         attack: 80, 
-        defense: 90, 
+        defense: 75, 
         spAttack: 130, 
         spDefense: 95, 
         speed: 120
@@ -231,7 +231,7 @@ const pokemonData = {
     gender: "♂",
     category: "Death",
     abilities: ["Merciless", "Supreme Overlord"],
-    types: ["Dark"],
+    types: ["Dark","Fighting"],
     stats: {
         hp: 95, 
         attack: 120, 
@@ -242,5 +242,115 @@ const pokemonData = {
     },
     signatureMove: "Power Trip",
     category2: "Mythology"
+  },
+  eliska: {
+    name: "Eliśka Ivanovich",
+    number: "000",
+    image: "https://imgur.com/Fs050Jf.png",
+    description: "idk, uh, horse gal, hell yeah",
+    height: "2 rainbowdash",
+    weight: "1 applejack",
+    gender: "♀",
+    category: "Firebird / Red Fox",
+    abilities: ["Harvest", "Hustle"],
+    types: ["Fire", "Ground"],
+    stats: {
+        hp: 100, 
+        attack: 125, 
+        defense: 100, 
+        spAttack: 55, 
+        spDefense: 85, 
+        speed: 35
+    },
+    signatureMove: "High Horsepower",
+    category2: "Fairytale"
+  },
+  kuro: {
+    name: "Kuro Tsukuyomi",
+    number: "000",
+    image: "https://imgur.com/aD0eSQ2.png",
+    description: "In the midst of night under the pale blue moon Kuro was left soundly asleep on the steps of an old temple that hasn't been visited in over 100 years and then was found by a group of lunar rabbits and up until he reached the age of 16 he was cared for then set a foot to travel to bookhaven.",
+    height: "8 rabbits",
+    weight: "1 giant carrot",
+    gender: "♂",
+    category: "Moon",
+    abilities: ["Tangled Feet", "Super Luck"],
+    types: ["Dark", "Normal"],
+    stats: {
+        hp: 75, 
+        attack: 70, 
+        defense: 70, 
+        spAttack: 40, 
+        spDefense: 80, 
+        speed: 90
+    },
+    signatureMove: "False Surrender",
+    category2: "Mythology"
+  },
+  winona: {
+    name: "Winona Cantu",
+    number: "000",
+    image: "https://imgur.com/Kw7ytNt.png",
+    description: "She’s a bright individual when she’s at the school, however has struggled to keep friends as her personality tends to shift at night due to her paranoia. When around her (at night) you can hear the screams of her mother crying out “Mis hijos! Ay mis hijos!”. Which has left her to be the weird kid at times.",
+    height: "1.63 m",
+    weight: "62 kg",
+    gender: "♀",
+    category: "Wheep",
+    abilities: ["Tangling Hair", "Cursed Body"],
+    types: ["Water", "Ghost"],
+    stats: {
+        hp: 55, 
+        attack: 55, 
+        defense: 55, 
+        spAttack: 135, 
+        spDefense: 135, 
+        speed: 95
+    },
+    signatureMove: "Whirlpool",
+    category2: "Folklore"
+  },
+  malos: {
+    name: "Malos Wynn Grimoire",
+    number: "000",
+    image: "https://imgur.com/LIBVEZf.png",
+    description: "Being the son to the sorcerer Merlin, Malos left the castle to travel and learn about the world. He seeks to be a great advisor like his father, but instead of helping royalty and knights, Malos seeks to aid the new generation and common folk. While wandering, he finds an application to join Book Haven. He is missing is right arm from the bicep down due to a magic incident. Malos replaces it with a mana construct he conjures like a prosthetic.",
+    height: "2.01 m",
+    weight: "93 kg",
+    gender: "♂",
+    category: "Wizard",
+    abilities: ["Magic Guard", "Earth Eater"],
+    types: ["Psychic", "Ground"],
+    stats: {
+        hp: 55, 
+        attack: 90, 
+        defense: 55, 
+        spAttack: 135, 
+        spDefense: 95, 
+        speed: 70
+    },
+    signatureMove: "Gravity",
+    category2: "Fairytale"
+  },
+  ampi: {
+    name: "Rampion Kingston",
+    number: "000",
+    image: "https://imgur.com/zHdbih7.png",
+    description: "Like a little ray of sunshine! He tries to make sure everyone around him is happy, but if he needs to he'll stand up for people being picked on. He tries his best to see the good in everyone. He's very quietly ambitious- a bit shy at first, but will go out of his way to comfort, cheer up, or make someone laugh once they're close enough. He loves spending quality time with people and sometimes the only way he knows how to connect with people is through gift giving.",
+    height: "1.82 m",
+    weight: "76.8 kg",
+    gender: "♂",
+    category: "Lost Prince",
+    abilities: ["Serene Grace", "Clear Body"],
+    types: ["Normal", "Water"],
+    stats: {
+        hp: 75, 
+        attack: 80, 
+        defense: 60, 
+        spAttack: 65, 
+        spDefense: 90, 
+        speed: 100
+    },
+    signatureMove: "Present",
+    category2: "Fairytale"
   },
 };
