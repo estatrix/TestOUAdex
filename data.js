@@ -419,4 +419,26 @@ const pokemonData = {
     signatureMove: "Searing Shot",
     category2: "Mythology"
   },
+  kuro: {
+    name: "Kuro Tsukuyomi",
+    number: "000",
+    image: "https://imgur.com/btBeEix.png",
+    description: "Usually somewhat closed off and self aware not approaching other classmates without reason or if the classmate talks to them first, and can be affectionate to people he cares deeply about after getting use to people he's close with",
+    height: "1.62 m",
+    weight: "58.7 kg",
+    gender: "♂",
+    category: "Moon",
+    abilities: ["Quick Feet", "Fur Coat"],
+    types: ["Dark", "Normal"],
+    stats: {
+        hp: 65, 
+        attack: 75, 
+        defense: 85, 
+        spAttack: 55, 
+        spDefense: 95, 
+        speed: 110
+    },
+    signatureMove: "False Surrender",
+    category2: "Mythology"
+  },
 };
