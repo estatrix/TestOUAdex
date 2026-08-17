@@ -353,4 +353,48 @@ const pokemonData = {
     signatureMove: "Present",
     category2: "Fairytale"
   },
+  gus: {
+    name: "Augustus Queen",
+    number: "000",
+    image: "https://imgur.com/f2mOv1Y.png",
+    description: "They came to Bookhaven after the fire at Feylore Prep. Augustus didn’t care to think much on it, as long as he fulfills his destiny, he doesn’t care which school he was to attend. When he first arrived, he fumbled around a bit, struggling to find his footing and seem evil. He was the least intimidating boy ever. The first friend he makes is the head girl Maggie, but not before Gus breaks into her cabin and steals her diary. Plans went awry and Gus gave Maggie a shitty apology, but later actually does his best to make it up to her.",
+    height: "1.7 m",
+    weight: "65.9 kg",
+    gender: "♂",
+    category: "Evil Queen",
+    abilities: ["Unburden", "Pressure"],
+    types: ["Dark", "Normal"],
+    stats: {
+        hp: 65, 
+        attack: 70, 
+        defense: 75, 
+        spAttack: 80, 
+        spDefense: 85, 
+        speed: 90
+    },
+    signatureMove: "Embargo",
+    category2: "Fairytale"
+  },
+  mirr: {
+    name: "Zot Mirr",
+    number: "000",
+    image: "https://imgur.com/LruxOjh.png",
+    description: "Mr.mirr has lead an interesting life. He has had 3 brothers Adam Malcom and Maelor and a sister pharra. Mr.mirr is married to the evil queen autumn queen who he met at the school during his years here breaking off a 16 year long betrothal and engagement to that cycles sleeping beauty to be with autumn his true love.",
+    height: "1 bathroom mirror",
+    weight: "10 mirrors",
+    gender: "mirror",
+    category: "Mirror",
+    abilities: ["Mirror Armor", "Magic Bounce"],
+    types: ["Psychic", "Steel"],
+    stats: {
+        hp: 75, 
+        attack: 90, 
+        defense: 110, 
+        spAttack: 70, 
+        spDefense: 80, 
+        speed: 60
+    },
+    signatureMove: "Mirror Move",
+    category2: "Folklore"
+  },
 };
