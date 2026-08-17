@@ -275,7 +275,7 @@ const pokemonData = {
     gender: "♂",
     category: "Moon",
     abilities: ["Tangled Feet", "Super Luck"],
-    types: ["Dark", "Normal"],
+    types: ["Dark", "Grass"],
     stats: {
         hp: 75, 
         attack: 70, 
@@ -419,26 +419,26 @@ const pokemonData = {
     signatureMove: "Searing Shot",
     category2: "Mythology"
   },
-  kuro: {
-    name: "Kuro Tsukuyomi",
+  aite: {
+    name: "Aita Moon",
     number: "000",
     image: "https://imgur.com/btBeEix.png",
-    description: "Usually somewhat closed off and self aware not approaching other classmates without reason or if the classmate talks to them first, and can be affectionate to people he cares deeply about after getting use to people he's close with",
-    height: "1.62 m",
+    description: "Aita is a shy closed of girl who sticks to herself and reads she also primarily likes to stay up at night to look at the beautiful sky but if you talk to her she will open up since she does deep down want friends its just she doesn't have the best social skills…",
+    height: "1.72 m",
     weight: "58.7 kg",
-    gender: "♂",
-    category: "Moon",
-    abilities: ["Quick Feet", "Fur Coat"],
-    types: ["Dark", "Normal"],
+    gender: "♀",
+    category: "Hunter",
+    abilities: ["Compound Eyes", "No Guard"],
+    types: ["Fighting", "Dark"],
     stats: {
         hp: 65, 
-        attack: 75, 
-        defense: 85, 
-        spAttack: 55, 
-        spDefense: 95, 
-        speed: 110
+        attack: 95, 
+        defense: 75, 
+        spAttack: 65, 
+        spDefense: 60, 
+        speed: 115
     },
-    signatureMove: "False Surrender",
+    signatureMove: "Triple Arrows",
     category2: "Mythology"
   },
 };
