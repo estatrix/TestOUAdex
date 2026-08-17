@@ -419,7 +419,7 @@ const pokemonData = {
     signatureMove: "Searing Shot",
     category2: "Mythology"
   },
-  aite: {
+  aita: {
     name: "Aita Moon",
     number: "000",
     image: "https://imgur.com/btBeEix.png",
@@ -439,6 +439,50 @@ const pokemonData = {
         speed: 115
     },
     signatureMove: "Triple Arrows",
+    category2: "Mythology"
+  },
+  maggie: {
+    name: "Echo Bosse",
+    number: "000",
+    image: "https://imgur.com/wnnINGl.png",
+    description: "Echo was born on a cold February evening to mother Carolyne Bosse in the hospital wing of the palace of the winter fairies with two wings, two eyes, two ears and.. a wild life ahead of her. Taken in her infancy and raised by her captor, assumed mother, Pharah Godfairy.. Echo.. or was it Maggie..? Always assumed that life would hold the door open for her to waltz into destiny when she was ready to meet it.. little did she know how wrong she was. Now seemingly being flung about by the whims of the fates themselves, Echo has many different types of hurdles to overcome.. will she be a good Queen? More importantly, will he let her fail?",
+    height: "5 apples tall",
+    weight: "The weight of all the lore in her shoulders",
+    gender: "♀",
+    category: "Season Fairy (Winter)",
+    abilities: ["Shadow Tag", "Magician"],
+    types: ["Fairy", "Dark"],
+    stats: {
+        hp: 95, 
+        attack: 90, 
+        defense: 65, 
+        spAttack: 135, 
+        spDefense: 95, 
+        speed: 75
+    },
+    signatureMove: "Nasty Plot",
+    category2: "Fairytale"
+  },
+  bella: {
+    name: "Bellarose Knight",
+    number: "000",
+    image: "https://imgur.com/kCMu6aV.png",
+    description: "Bella has been sheltered for most of her life on Circe's Island. She doesn't know much about who her mother is and who she is. She really enjoys reading and finding new recipes to try out. Her mother raised her to eventually take over a small portion of the island, but that isn't what Bella wants. She wants to explore the world and meet new people(without turning them into animals). Since she grew up with an overbearing mother, she learned ways to sneak away and go explore different areas outside of the island without her mothers knowledge. Which is how she learned how to be proficient with a bow and how to make new recipes",
+    height: "1.73 m",
+    weight: "72.1 kg",
+    gender: "♀",
+    category: "Magic Warrior",
+    abilities: ["Steadfast", "Mold Breaker"],
+    types: ["Fighting", "Psychic"],
+    stats: {
+        hp: 60, 
+        attack: 125, 
+        defense: 65, 
+        spAttack: 125, 
+        spDefense: 75, 
+        speed: 100
+    },
+    signatureMove: "Secret Sword",
     category2: "Mythology"
   },
 };
