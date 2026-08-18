@@ -529,4 +529,26 @@ const pokemonData = {
     signatureMove: "Last Respects",
     category2: "Folklore"
   },
+  jack: {
+    name: "Jack Spriggins",
+    number: "000",
+    image: "https://imgur.com/6FR0swD.png",
+    description: "Jack Spriggins, the Jack and the Beanstalk of cycle 74, had had a pretty rough start in the world of The Ever After. With his father dead before Jack had even turned two, and his mother being destinyless, there was nobody around to really prepare him for exactly what was coming. Jack had started his studies in Bookhaven being unable to read or write the common Latin script, much less wield a sword. This had, at no point in time, however, stopped him from being absolutely certain that he was to become important enough that his name would be remembered forever throughout history.",
+    height: "Cactus",
+    weight: "Fifteen thousands 4 hundred and 58 green beans",
+    gender: "♂",
+    category: "Beanstalk",
+    abilities: ["Harvest", "Pickpocket"],
+    types: ["Ground", "Grass"],
+    stats: {
+        hp: 100, 
+        attack: 70, 
+        defense: 90, 
+        spAttack: 100, 
+        spDefense: 110, 
+        speed: 60
+    },
+    signatureMove: "Growth",
+    category2: "Fairytale"
+  },
 };
