@@ -551,4 +551,48 @@ const pokemonData = {
     signatureMove: "Growth",
     category2: "Fairytale"
   },
+  shadow: {
+    name: "Shadow in Boots",
+    number: "000",
+    image: "https://imgur.com/yKEXjpy.png",
+    description: "Shadow was always one that thinks with her heart rather than her head. She also wants to help any of her students to the best she can. Shadow also is a bit iffy towards the villain teachers. While she respects them and their villain descendant students, she also tries her best to live up to her legacy, as well as continue to fulfill her destiny. Evil wasn’t exactly in her vocabulary of people to interact with friendly. But, she wants to pass down her same friendly qualities to all of her students, no matter who they are. As she gets older, she will no longer feel like she deserved to fulfill her destiny. She is also currently the last of her line.",
+    height: "1 very long cat",
+    weight: "1 very big cat",
+    gender: "♀",
+    category: "Fur Boots",
+    abilities: ["Speed Boost", "Normalize"],
+    types: ["Normal"],
+    stats: {
+        hp: 75, 
+        attack: 110, 
+        defense: 75, 
+        spAttack: 60, 
+        spDefense: 75, 
+        speed: 140
+    },
+    signatureMove: "Electro Ball",
+    category2: "Fairytale",
+  },
+  lily: {
+    name: "Lily Allard",
+    number: "000",
+    image: "https://imgur.com/KgzOeOD.png",
+    description: "Despite being the daughter of the famous dancer from the Twelve Dancing Princesses, she's not a very good dancer. However, she still goes to school to please her parents though she isn't sure dancing is what she truly wants. Maybe she can fulfill her destiny another way?",
+    height: "10 ballet shoes",
+    weight: "1 meter tall speaker",
+    gender: "♀",
+    category: "Dance Princess",
+    abilities: ["Dancer", "Serene Grace"],
+    types: ["Normal"],
+    stats: {
+        hp: 80, 
+        attack: 120, 
+        defense: 90, 
+        spAttack: 70, 
+        spDefense: 80, 
+        speed: 130
+    },
+    signatureMove: "Swords Dance",
+    category2: "Fairytale"
+  },
 };
