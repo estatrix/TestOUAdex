@@ -39,7 +39,7 @@ const pokemonData = {
   },
   liviath: {
     name: "Liviath",
-    number: "0001",
+    number: "000",
     image: "https://imgur.com/TBuZrAd.png",
     description: "test",
     height: "1.71 m",
@@ -60,14 +60,14 @@ const pokemonData = {
     signatureMove: "Liquidation",
     evolution: [
       {
-        name: "Liv",
+        name: "Liviath",
         number: "000",
         image: "https://imgur.com/TBuZrAd.png",
         types: ["Water","Poison"]
       },
       {
         condition: "Dark Stone, lvl. 65",
-        name: "Liviath",
+        name: "Vilu",
         number: "000",
         image: "https://imgur.com/Y0hA4Op.png",
         types: ["Dragon", "Water"]
