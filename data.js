@@ -541,10 +541,10 @@ const pokemonData = {
     abilities: ["Harvest", "Pickpocket"],
     types: ["Ground", "Grass"],
     stats: {
-        hp: 100, 
-        attack: 70, 
+        hp: 110, 
+        attack: 80, 
         defense: 90, 
-        spAttack: 100, 
+        spAttack: 110, 
         spDefense: 110, 
         speed: 60
     },
@@ -564,9 +564,9 @@ const pokemonData = {
     types: ["Normal"],
     stats: {
         hp: 75, 
-        attack: 110, 
+        attack: 100, 
         defense: 75, 
-        spAttack: 60, 
+        spAttack: 90, 
         spDefense: 75, 
         speed: 140
     },
