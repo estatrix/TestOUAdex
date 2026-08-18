@@ -485,4 +485,48 @@ const pokemonData = {
     signatureMove: "Secret Sword",
     category2: "Mythology"
   },
+  adiana: {
+    name: "Ădiana-Dōl Sânge Țepeș",
+    number: "000",
+    image: "https://imgur.com/erLfvXr.png",
+    description: "Adiana-Dōl hasn’t always been a vampire. Well, not that she could recall her life while she was alive anyways. She was founded by Soren Țepeș, one of the many who hast followed the Dracula tale and claimed it to be truth. Without a name and a home, clinging into a mossy and nameless grave, he decided to take her in and bestow the last name of Țepeș onto her, allowing her for a new destiny, a second chance. Years pass by and it was truly time to void any last stand of humanity the girl has been clinging onto, Soren sent Ădiana-Dōl to Bookhaven to truly seam together her fate as the next heir of the Dracula tale.",
+    height: "1.83 m",
+    weight: "53.6 kg",
+    gender: "♀",
+    category: "Vampire",
+    abilities: ["Unnerve", "Moody"],
+    types: ["Dark", "Bug"],
+    stats: {
+        hp: 65, 
+        attack: 100, 
+        defense: 80, 
+        spAttack: 110, 
+        spDefense: 90, 
+        speed: 120
+    },
+    signatureMove: "Leech Life",
+    category2: "Mythology"
+  },
+  ojos: {
+    name: "Yaretzi de los Mil Ojos",
+    number: "000",
+    image: "https://imgur.com/fYZmegf.png",
+    description: "Warm bronze skin with faint. intricate calavera-style markings that glow softly in moonlight, most noticeably around her eyes. Her long, flowing black hair is streaked with gold and crimson, usually adorned with a rose crown. Her eyes shimmer with flecks of marigold, and her outfit is embroidered in gothic-Spanish deep blacks, reds, and golds, with lace veils, skeleton motifs, and a hat with one singular candle that relates to one human life that mean something to her.",
+    height: "1.81 m",
+    weight: "47.9 kg",
+    gender: "♀",
+    category: "Dia de los Muertos",
+    abilities: ["Intimidate", "White Smoke"],
+    types: ["Ghost", "Grass"],
+    stats: {
+        hp: 100, 
+        attack: 90, 
+        defense: 110, 
+        spAttack: 50, 
+        spDefense: 105, 
+        speed: 100
+    },
+    signatureMove: "Last Respects",
+    category2: "Folklore"
+  },
 };
