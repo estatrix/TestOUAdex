@@ -595,4 +595,41 @@ const pokemonData = {
     signatureMove: "Swords Dance",
     category2: "Fairytale"
   },
+  inkara: {
+    name: "Inkara",
+    number: "000",
+    image: "https://imgur.com/VPDZbme.png",
+    description: "when the ink is ara",
+    height: "1 ink",
+    weight: "1 ara",
+    gender: "♀(?)",
+    category: "",
+    abilities: ["", ""],
+    types: ["", ""],
+    stats: {
+        hp: 78, 
+        attack: 84, 
+        defense: 78, 
+        spAttack: 109, 
+        spDefense: 85, 
+        speed: 100
+    },
+    signatureMove: "Aura Sphere",
+    category2: "Folklore, myth, fairytale",
+    evolution: [
+      {
+        name: "Riolu",
+        number: "0447",
+        image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/447.png",
+        types: ["Fighting"]
+      },
+      {
+        condition: "High Friendship + Day",
+        name: "Lucario",
+        number: "0448",
+        image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/448.png",
+        types: ["Fighting", "Steel"]
+      }
+    ]
+  },
 };
