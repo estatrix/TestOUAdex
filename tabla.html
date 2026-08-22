@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="./navigation.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Character Table - Once Upon A Dex</title>
@@ -60,7 +61,7 @@
   <div class="container">
     <header class="header">
       <h1>Character Database</h1>
-      <a href="index.html" class="nav-link">← Back to Details</a>
+      <!-- <a href="index.html" class="nav-link">← Back to Details</a> -->
     </header>
 
     <div class="controls-card">
@@ -104,7 +105,6 @@
           </tr>
         </thead>
         <tbody id="table-body">
-          <!-- Rows -->
         </tbody>
       </table>
     </div>
@@ -122,13 +122,11 @@
 
     let allPokemon = [];
     let currentSort = { col: 'number', asc: true };
-
     const calculateTotal = (stats) => Object.values(stats).reduce((a, b) => a + b, 0);
-
     const initData = () => {
       if (typeof pokemonData === 'undefined') return;
       allPokemon = Object.entries(pokemonData)
-        .filter(([_, data]) => data.number) // Excluir sin número
+        .filter(([_, data]) => data.number)
         .map(([key, data]) => ({
           id: key,
           ...data,
@@ -136,22 +134,18 @@
         }));
       renderTable();
     };
-
     const filterAndSortData = () => {
       const searchVal = document.getElementById('search-input').value.toLowerCase();
       const typeVal = document.getElementById('type-filter').value;
       const minTotal = parseInt(document.getElementById('min-total').value) || 0;
-
       let filtered = allPokemon.filter(p => {
         const matchNameOrNum = p.name.toLowerCase().includes(searchVal) || p.number.toString().includes(searchVal);
         const matchType = typeVal === 'all' || p.types.map(t => t.toLowerCase()).includes(typeVal);
         const matchTotal = p.total >= minTotal;
         return matchNameOrNum && matchType && matchTotal;
       });
-
       filtered.sort((a, b) => {
         let valA, valB;
-        
         if (currentSort.col === 'number') {
           valA = parseInt(a.number.toString().replace(/\D/g, ''));
           valB = parseInt(b.number.toString().replace(/\D/g, ''));
@@ -162,19 +156,15 @@
         } else {
           valA = a.stats[currentSort.col]; valB = b.stats[currentSort.col];
         }
-
         if (valA < valB) return currentSort.asc ? -1 : 1;
         if (valA > valB) return currentSort.asc ? 1 : -1;
         return 0;
       });
-
       return filtered;
     };
-
     const renderTable = () => {
       const tbody = document.getElementById('table-body');
       const dataToRender = filterAndSortData();
-      
       tbody.innerHTML = dataToRender.map(p => `
         <tr>
           <td>#${p.number}</td>
@@ -195,26 +185,21 @@
         </tr>
       `).join('');
     };
-
-    // Events for controls
     document.getElementById('search-input').addEventListener('input', renderTable);
     document.getElementById('type-filter').addEventListener('change', renderTable);
     document.getElementById('min-total').addEventListener('input', renderTable);
-
-    // Events for sorting
     document.querySelectorAll('th[data-sort]').forEach(th => {
       th.addEventListener('click', () => {
         const col = th.dataset.sort;
         if (currentSort.col === col) {
-          currentSort.asc = !currentSort.asc; // Invertir orden
+          currentSort.asc = !currentSort.asc;
         } else {
           currentSort.col = col;
-          currentSort.asc = true; // Por defecto ascendente al cambiar columna
+          currentSort.asc = true;
         }
         renderTable();
       });
     });
-
     document.addEventListener('DOMContentLoaded', initData);
   </script>
 </body>

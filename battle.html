@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Battle Arena - Once Upon A Dex</title>
+  <style>
+    :root {
+      --bg-body: #f4f7f9;
+      --bg-card: rgba(255, 255, 255, 0.9);
+      --text-main: #1a202c;
+      --text-muted: #718096;
+      --border-color: #e2e8f0;
+      --primary-cyan: #0bc5ea;
+      --primary-blue: #3182ce;
+      --team-a-color: #e53e3e;
+      --team-b-color: #3182ce;
+      --shadow-md: 0 4px 6px rgba(0,0,0,0.04), 0 2px 4px rgba(0,0,0,0.02);
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --transition-speed: 250ms;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; color: var(--text-main); line-height: 1.5; min-height: 100vh; position: relative; overflow-x: hidden; }
+
+    .bg-blur-container { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; overflow: hidden; }
+    .bg-image { position: absolute; top: -10px; left: -10px; right: -10px; bottom: -10px; background-image: url('https://imgur.com/JPHaMJj.png'); background-size: cover; background-position: center; filter: blur(12px); transform: scale(1.05); }
+    .bg-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0.2, 0.3, 0.4); }
+
+    .dashboard-container { max-width: 1280px; margin: 0 auto; padding: 24px; display: flex; flex-direction: column; gap: 24px; position: relative; z-index: 1; }
+
+    .dashboard-header { display: flex; justify-content: space-between; align-items: center; background: var(--bg-card); backdrop-filter: blur(8px); padding: 16px 24px; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
+    .header-left h1 { font-size: 1.25rem; font-weight: 700; }
+    .custom-select { padding: 8px 16px; border: 1px solid var(--border-color); border-radius: var(--radius-md); font-family: inherit; font-size: 0.95rem; background-color: rgba(255, 255, 255, 0.8); cursor: pointer; }
+
+    .battle-arena { display: grid; grid-template-columns: 1fr auto 1fr; gap: 24px; align-items: center; }
+    .team-col { display: flex; flex-direction: column; gap: 16px; }
+    .team-title { 
+      text-align: center; 
+      font-size: 1.2rem; 
+      font-weight: bold; 
+      margin-bottom: 8px;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(4px);
+      padding: 6px 16px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      display: inline-block;
+      align-self: center;
+    }
+    .team-a-title { color: var(--team-a-color); }
+    .team-b-title { color: var(--team-b-color); }
+
+    .mini-card { background: var(--bg-card); border-radius: var(--radius-md); padding: 12px; display: flex; align-items: center; gap: 16px; box-shadow: var(--shadow-md); position: relative; }
+    .mini-img-wrapper { width: 80px; height: 80px; background: radial-gradient(circle, rgba(230, 247, 255, 0.8) 0%, rgba(255, 255, 255, 0.7) 70%); border-radius: 50%; border: 2px solid var(--border-color); display: flex; justify-content: center; align-items: center; padding: 8px; flex-shrink: 0; }
+    .mini-img-wrapper img { width: 100%; height: 100%; object-fit: contain; }
+    .mini-info { flex: 1; }
+    .mini-name { font-weight: bold; font-size: 1.1rem; text-transform: capitalize; }
+    .mini-ability { font-size: 0.75rem; color: #4a5568; font-weight: 600; margin-top: 2px; }
+    .mini-stats { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; }
+    .mini-types { display: flex; gap: 4px; margin-top: 4px; }
+    .tag { padding: 2px 8px; border-radius: 12px; color: white; font-size: 0.65rem; font-weight: bold; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
+    .selector-overlay { position: absolute; top: -10px; right: -10px; z-index: 10; }
+
+    .vs-center { display: flex; flex-direction: column; align-items: center; gap: 16px; background: var(--bg-card); padding: 24px; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
+    .prob-circle-container { width: 150px; height: 150px; border-radius: 50%; position: relative; background: conic-gradient(var(--team-a-color) 50%, var(--team-b-color) 0); display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: background 0.5s ease; }
+    .prob-circle-inner { width: 120px; height: 120px; background: white; border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 2; text-align: center; }
+    .prob-text { font-size: 0.9rem; font-weight: bold; color: var(--text-muted); }
+    .prob-value-a { color: var(--team-a-color); font-size: 1.2rem; font-weight: 800; }
+    .prob-value-b { color: var(--team-b-color); font-size: 1.2rem; font-weight: 800; margin-top: 4px;}
+
+    @media (max-width: 992px) { .battle-arena { grid-template-columns: 1fr; } .vs-center { order: -1; } }
+  </style>
+</head>
+<body>
+  <script src="./navigation.js"></script>
+
+  <div class="bg-blur-container"><div class="bg-image"></div><div class="bg-overlay"></div></div>
+
+  <div class="dashboard-container">
+    <header class="dashboard-header">
+      <div class="header-left"><h1>Battle Simulator</h1></div>
+      <div class="header-right">
+        <select id="mode-selector" class="custom-select">
+          <option value="1">1v1 Battle</option>
+          <option value="2">2v2 Battle</option>
+          <option value="3">3v3 Battle</option>
+        </select>
+      </div>
+    </header>
+
+    <main class="battle-arena">
+      <div class="team-col" id="team-a-col">
+        <h2 class="team-title team-a-title">Team A</h2>
+        <div id="team-a-slots"></div>
+      </div>
+      <div class="vs-center">
+        <h2>Win Probability</h2>
+        <div class="prob-circle-container" id="prob-circle">
+          <div class="prob-circle-inner">
+            <span class="prob-value-a" id="prob-a-text">50%</span>
+            <span class="prob-text">VS</span>
+            <span class="prob-value-b" id="prob-b-text">50%</span>
+          </div>
+        </div>
+      </div>
+      <div class="team-col" id="team-b-col">
+        <h2 class="team-title team-b-title">Team B</h2>
+        <div id="team-b-slots"></div>
+      </div>
+    </main>
+  </div>
+
+  <script src="./data.js"></script>
+  <script>
+    const TYPE_COLORS = { normal: '#A8A878', fire: '#F08030', water: '#6890F0', electric: '#F8D030', grass: '#78C850', ice: '#98D8D8', fighting: '#C03028', poison: '#A040A0', ground: '#E0C068', flying: '#A890F0', psychic: '#F85888', bug: '#A8B820', rock: '#B8A038', ghost: '#705898', dragon: '#7038F8', dark: '#705848', steel: '#B8B8D0', fairy: '#EE99AC', null: '#cbd5e0' };
+    
+    // 1. Configuración de la Matriz de Tipos
+    const TYPE_CHART = {
+      normal: { strongAgainst: [], weakAgainst: ['rock', 'steel'], immuneAgainst: ['ghost'] },
+      fire: { strongAgainst: ['grass', 'ice', 'bug', 'steel'], weakAgainst: ['fire', 'water', 'rock', 'dragon'], immuneAgainst: [] },
+      water: { strongAgainst: ['fire', 'ground', 'rock'], weakAgainst: ['water', 'grass', 'dragon'], immuneAgainst: [] },
+      electric: { strongAgainst: ['water', 'flying'], weakAgainst: ['electric', 'grass', 'dragon'], immuneAgainst: ['ground'] },
+      grass: { strongAgainst: ['water', 'ground', 'rock'], weakAgainst: ['fire', 'grass', 'poison', 'flying', 'bug', 'dragon', 'steel'], immuneAgainst: [] },
+      ice: { strongAgainst: ['grass', 'ground', 'flying', 'dragon'], weakAgainst: ['fire', 'water', 'ice', 'steel'], immuneAgainst: [] },
+      fighting: { strongAgainst: ['normal', 'ice', 'rock', 'dark', 'steel'], weakAgainst: ['poison', 'flying', 'psychic', 'bug', 'fairy'], immuneAgainst: ['ghost'] },
+      poison: { strongAgainst: ['grass', 'fairy'], weakAgainst: ['poison', 'ground', 'rock', 'ghost'], immuneAgainst: ['steel'] },
+      ground: { strongAgainst: ['fire', 'electric', 'poison', 'rock', 'steel'], weakAgainst: ['grass', 'bug'], immuneAgainst: ['flying'] },
+      flying: { strongAgainst: ['grass', 'fighting', 'bug'], weakAgainst: ['electric', 'rock', 'steel'], immuneAgainst: [] },
+      psychic: { strongAgainst: ['fighting', 'poison'], weakAgainst: ['psychic', 'steel'], immuneAgainst: ['dark'] },
+      bug: { strongAgainst: ['grass', 'psychic', 'dark'], weakAgainst: ['fire', 'fighting', 'poison', 'flying', 'ghost', 'steel', 'fairy'], immuneAgainst: [] },
+      rock: { strongAgainst: ['fire', 'ice', 'flying', 'bug'], weakAgainst: ['fighting', 'ground', 'steel'], immuneAgainst: [] },
+      ghost: { strongAgainst: ['psychic', 'ghost'], weakAgainst: ['dark'], immuneAgainst: ['normal'] },
+      dragon: { strongAgainst: ['dragon'], weakAgainst: ['steel'], immuneAgainst: ['fairy'] },
+      dark: { strongAgainst: ['psychic', 'ghost'], weakAgainst: ['fighting', 'dark', 'fairy'], immuneAgainst: [] },
+      steel: { strongAgainst: ['ice', 'rock', 'fairy'], weakAgainst: ['fire', 'water', 'electric', 'steel'], immuneAgainst: [] },
+      fairy: { strongAgainst: ['fighting', 'dragon', 'dark'], weakAgainst: ['fire', 'poison', 'steel'], immuneAgainst: [] },
+      null: { strongAgainst: [], weakAgainst: [], immuneAgainst: [] }
+    };
+
+    // Configuración de Balance Tunable
+    const CONFIG = {
+      speedBonusPerRank: 0.05, // +5 puntos porcentuales por personaje en el top 3 global
+      typeNormalizationFactor: 0.15 // Controla el peso del tipo para que no domine por completo las estadísticas
+    };
+
+    let validPokemon = [];
+    let state = { mode: 3, teamA: [], teamB: [] };
+
+    const DOM = {
+      modeSelector: document.getElementById('mode-selector'),
+      teamASlots: document.getElementById('team-a-slots'),
+      teamBSlots: document.getElementById('team-b-slots'),
+      probCircle: document.getElementById('prob-circle'),
+      probAText: document.getElementById('prob-a-text'),
+      probBText: document.getElementById('prob-b-text'),
+    };
+
+    const initData = () => {
+      if (typeof pokemonData === 'undefined') return;
+      
+      validPokemon = Object.entries(pokemonData)
+        .filter(([_, data]) => data.number !== undefined && data.number !== '')
+        .sort((a, b) => parseInt(a[1].number.toString().replace(/\D/g, ''), 10) - parseInt(b[1].number.toString().replace(/\D/g, ''), 10));
+      
+      // Slot vacío "None" con stats en 0
+      validPokemon.unshift([
+        'empty_slot',
+        {
+          name: 'None', number: '---', types: ['null'], ability: 'None',
+          stats: { hp: 0, attack: 0, defense: 0, spAttack: 0, spDefense: 0, speed: 0 },
+          image: 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='
+        }
+      ]);
+
+      for(let i=0; i<3; i++) {
+        state.teamA[i] = validPokemon[1] ? validPokemon[1][0] : validPokemon[0][0];
+        state.teamB[i] = validPokemon[2] ? validPokemon[2][0] : validPokemon[0][0];
+      }
+      renderArena();
+    };
+
+    // 1. Cálculo del puntaje de un personaje (Excluyendo velocidad)
+    const calculateCharacterScore = (char) => {
+      if (!char || char.name === 'None') return 0;
+      return (char.stats.hp || 0) + 
+             (char.stats.attack || 0) + 
+             (char.stats.defense || 0) + 
+             (char.stats.spAttack || 0) + 
+             (char.stats.spDefense || 0);
+    };
+
+    // 2. Cálculo del puntaje de equipo sumando los puntajes individuales
+    const calculateTeamScore = (teamIds) => {
+      let score = 0;
+      teamIds.forEach(id => {
+        const char = pokemonData[id] || validPokemon[0][1];
+        score += calculateCharacterScore(char);
+      });
+      return score;
+    };
+
+    // Obtener efectividad de tipo individual
+    const getTypeEffectiveness = (atkTypes, defTypes) => {
+      let multiplier = 1.0;
+      atkTypes.forEach(tA => {
+        const typeData = TYPE_CHART[tA.toLowerCase()];
+        if (typeData) {
+          defTypes.forEach(tB => {
+            const tbLower = tB.toLowerCase();
+            if (typeData.strongAgainst.includes(tbLower)) multiplier *= 2.0;
+            if (typeData.weakAgainst.includes(tbLower)) multiplier *= 0.5;
+            if (typeData.immuneAgainst && typeData.immuneAgainst.includes(tbLower)) multiplier *= 0;
+          });
+        }
+      });
+      return multiplier;
+    };
+
+    // 3. Factor de tipo para matrices (ej: 3x3 o 1v1 normalizado)
+    const calculateTypeFactor = (teamAIds, teamBIds, mode) => {
+      let sumA = 0;
+      let sumB = 0;
+      let count = 0;
+
+      const activeA = teamAIds.slice(0, mode).map(id => pokemonData[id] || validPokemon[0][1]).filter(c => c.name !== 'None');
+      const activeB = teamBIds.slice(0, mode).map(id => pokemonData[id] || validPokemon[0][1]).filter(c => c.name !== 'None');
+
+      if (activeA.length === 0 || activeB.length === 0) return 0;
+
+      activeA.forEach(cA => {
+        activeB.forEach(cB => {
+          sumA += getTypeEffectiveness(cA.types, cB.types);
+          sumB += getTypeEffectiveness(cB.types, cA.types);
+          count++;
+        });
+      });
+
+      if (count === 0) return 0;
+
+      const avgA = sumA / count;
+      const avgB = sumB / count;
+
+      // Normalización para convertir la ventaja de tipos en un modificador de probabilidad balanceado
+      return (avgA - avgB) * CONFIG.typeNormalizationFactor;
+    };
+
+    // 4. Sistema de Velocidad Global (Solo para 3v3 o según combatientes activos)
+    const calculateSpeedAdvantage = (teamAIds, teamBIds, mode) => {
+      let allChars = [];
+      
+      for(let i=0; i<mode; i++) {
+        const idA = teamAIds[i];
+        const idB = teamBIds[i];
+        const cA = pokemonData[idA] || validPokemon[0][1];
+        const cB = pokemonData[idB] || validPokemon[0][1];
+        
+        if(cA.name !== 'None') allChars.push({ team: 'A', speed: cA.stats.speed || 0 });
+        if(cB.name !== 'None') allChars.push({ team: 'B', speed: cB.stats.speed || 0 });
+      }
+
+      // Ordenar de mayor a menor velocidad
+      allChars.sort((x, y) => y.speed - x.speed);
+
+      // Tomar la primera mitad o máximo los 3 más rápidos globales
+      const topCount = Math.min(3, Math.ceil(allChars.length / 2));
+      let fA = 0;
+      let fB = 0;
+
+      for(let i = 0; i < topCount; i++) {
+        if(allChars[i]) {
+          if(allChars[i].team === 'A') fA++;
+          if(allChars[i].team === 'B') fB++;
+        }
+      }
+
+      return CONFIG.speedBonusPerRank * (fA - fB);
+    };
+
+    // Cálculo central de probabilidades de victoria
+    const calculateWinProbability = () => {
+      const mode = state.mode;
+      const teamAIds = state.teamA;
+      const teamBIds = state.teamB;
+
+      const scoreA = calculateTeamScore(teamAIds.slice(0, mode));
+      const scoreB = calculateTeamScore(teamBIds.slice(0, mode));
+
+      let pABase = 0.5;
+      const totalScore = scoreA + scoreB;
+      if (totalScore > 0) {
+        pABase = scoreA / totalScore;
+      } else {
+        const activeA = teamAIds.slice(0, mode).some(id => (pokemonData[id] || validPokemon[0][1]).name !== 'None');
+        const activeB = teamBIds.slice(0, mode).some(id => (pokemonData[id] || validPokemon[0][1]).name !== 'None');
+        if (activeA && !activeB) pABase = 1.0;
+        if (!activeA && activeB) pABase = 0.0;
+      }
+
+      // Ajuste de Tipos Normalizado
+      const typeBonus = calculateTypeFactor(teamAIds, teamBIds, mode);
+      let pAType = pABase + typeBonus;
+
+      // Ajuste de Velocidad Global
+      const speedAdjustment = calculateSpeedAdvantage(teamAIds, teamBIds, mode);
+      let pAFinal = pAType + speedAdjustment;
+
+      // Forzar límites de probabilidad [0, 1]
+      pAFinal = Math.max(0, Math.min(1, pAFinal));
+      let pBFinal = 1 - pAFinal;
+
+      const probAVal = pAFinal * 100;
+      const probBVal = pBFinal * 100;
+
+      DOM.probAText.textContent = `${probAVal.toFixed(1)}%`;
+      DOM.probBText.textContent = `${probBVal.toFixed(1)}%`;
+      DOM.probCircle.style.background = `conic-gradient(var(--team-a-color) ${probAVal}%, var(--team-b-color) 0)`;
+    };
+
+    const renderMiniCard = (pokemonId, team, index) => {
+      const p = pokemonData[pokemonId] || validPokemon[0][1]; 
+      const options = validPokemon.map(([key, data]) => `<option value="${key}" ${key === pokemonId ? 'selected' : ''}>${data.name}</option>`).join('');
+      const typesHtml = p.types.map(t => `<span class="tag" style="background-color: ${TYPE_COLORS[t.toLowerCase()] || '#718096'}">${t}</span>`).join('');
+      const cardStyle = p.name === 'None' ? 'opacity: 0.6; background: rgba(255,255,255,0.4);' : '';
+
+      return `
+        <div class="mini-card" style="${cardStyle}">
+          <div class="selector-overlay">
+            <select class="custom-select" style="padding: 2px 8px; font-size: 0.8rem;" onchange="changePokemon('${team}', ${index}, this.value)">
+              ${options}
+            </select>
+          </div>
+          <div class="mini-img-wrapper"><img src="${p.image}" alt="${p.name}"></div>
+          <div class="mini-info">
+            <div class="mini-name">${p.name}</div>
+            <div class="mini-ability">Ability: ${p.ability || 'None'}</div>
+            <div class="mini-types">${typesHtml}</div>
+            <div class="mini-stats">
+              <span>HP: ${p.stats.hp}</span> <span>Atk: ${p.stats.attack}</span> <span>Def: ${p.stats.defense}</span> 
+              <span>SpA: ${p.stats.spAttack}</span> <span>SpD: ${p.stats.spDefense}</span> <span>Spd: ${p.stats.speed}</span>
+            </div>
+          </div>
+        </div>
+      `;
+    };
+
+    const renderArena = () => {
+      DOM.teamASlots.innerHTML = ''; 
+      DOM.teamBSlots.innerHTML = '';
+      for (let i = 0; i < state.mode; i++) {
+        DOM.teamASlots.innerHTML += renderMiniCard(state.teamA[i], 'teamA', i);
+        DOM.teamBSlots.innerHTML += renderMiniCard(state.teamB[i], 'teamB', i);
+      }
+      calculateWinProbability();
+    };
+
+    window.changePokemon = (team, index, newId) => { state[team][index] = newId; renderArena(); };
+    DOM.modeSelector.addEventListener('change', (e) => { 
+      state.mode = parseInt(e.target.value); 
+      renderArena(); 
+    });
+    document.addEventListener('DOMContentLoaded', initData);
+  </script>
+</body>
+</html>
